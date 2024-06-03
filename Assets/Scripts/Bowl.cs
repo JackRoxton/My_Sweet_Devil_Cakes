@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Bowl : MonoBehaviour
 {
+    List<Ingredient> ingredients= new List<Ingredient>();
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision == null) return;
 
-        Ingredient ingredient = collision.gameObject.GetComponent<Ingredient>();
+        DragnDrop ingredient = collision.gameObject.GetComponent<DragnDrop>();
 
         if(ingredient == null) return;
-        if(collision.gameObject.GetComponent<DragnDrop>().isDragged) return;
+        if(ingredient.isDragged) return;
+        if(!ingredient.Draggable) return;
 
+        ingredient.Draggable = false;
+        ingredients.Add(ingredient.ingredient);
 
+        //check recette
     }
 }

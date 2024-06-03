@@ -9,5 +9,3 @@ public class Recipe : ScriptableObject
     public List<Ingredient> Ingredients;
     public string RecipeName;
 }
-
-//https://youtu.be/E91NYvDqsy8?si=v1XoGKudB_HihQ2I

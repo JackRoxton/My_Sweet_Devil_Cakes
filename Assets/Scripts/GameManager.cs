@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public PickRecipe picker;
+    //public Recipe pickedRecipe;
+
     public enum GameStates
     {
         MainMenu,
@@ -11,5 +14,11 @@ public class GameManager : Singleton<GameManager>
         PokedexPick,
         FridgePick
     }
-    public GameStates CurrentState;
+    public GameStates CurrentState = GameStates.MainMenu;
+
+    public void Play()
+    {
+        CurrentState = GameStates.PokedexPick;
+        picker.Pick();
+    }
 }
