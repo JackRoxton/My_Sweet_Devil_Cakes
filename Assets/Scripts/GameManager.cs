@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public PickRecipe picker;
-    //public Recipe pickedRecipe;
+    public Recipe pickedRecipe;
 
     public enum GameStates
     {
@@ -18,7 +18,14 @@ public class GameManager : Singleton<GameManager>
 
     public void Play()
     {
-        CurrentState = GameStates.PokedexPick;
-        picker.Pick();
+        CurrentState = GameStates.Pokedex;
+        //picker.Pick(); 
+    }
+
+    public void SetPickedRecipe(Recipe recipe)
+    {
+        pickedRecipe = recipe;
+        CurrentState = GameStates.FridgePick;
+        UIManager.Instance.RecipePicked();
     }
 }

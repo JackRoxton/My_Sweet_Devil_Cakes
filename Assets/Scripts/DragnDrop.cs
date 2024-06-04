@@ -11,6 +11,11 @@ public class DragnDrop : MonoBehaviour
     public bool Draggable = true;
     public Ingredient ingredient;
 
+    private void Start()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = ingredient.Sprite;
+    }
+
     public void OnMouseDrag()
     {
         if(!Draggable) return;

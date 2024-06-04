@@ -6,18 +6,19 @@ public class RecipeManager : Singleton<RecipeManager>
 {
     public List<Recipe> recipes;
     List<Recipe> undoneRecipes;
-    //public List<Ingredient> ingredients;
+    public List<Ingredient> ingredients;
+    //ingrédients consommés
 
     private void Start()
     {
         undoneRecipes = recipes;
     }
 
-    public Recipe CheckRecipe(Ingredient i1,Ingredient i2)
+    public Recipe CheckRecipe(Ingredient i1,Ingredient i2, Ingredient i3)
     {
         foreach (var recipe in recipes)
         {
-            if(recipe.Ingredients.Contains(i1) && recipe.Ingredients.Contains(i2))
+            if(recipe.Ingredients.Contains(i1) && recipe.Ingredients.Contains(i2) && recipe.Ingredients.Contains(i3))
             {
                 return recipe;
             }

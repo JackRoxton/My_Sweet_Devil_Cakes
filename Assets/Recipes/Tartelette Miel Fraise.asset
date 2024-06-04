@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965e967d6f96e5e419ea06a250f3d254, type: 3}
+  m_Name: Tartelette Miel Fraise
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 3458c119c69e9bc4f9647599c2901dee, type: 3}
+  Ingredients:
+  - {fileID: 11400000, guid: 47a35e2e568d05840bed31a310ed0546, type: 2}
+  - {fileID: 11400000, guid: 0222944404f12124fa4c2300b11cfcb7, type: 2}
+  - {fileID: 11400000, guid: 773cb3b4ca7164e468236bed1d8d3583, type: 2}
+  RecipeName: Tartelette Miel Fraise

@@ -16,6 +16,12 @@ public class UIManager : Singleton<UIManager>
     public GameObject Pick;
 
     public TMP_Text PickName;
+    public Image PickImage;
+
+    public Image PokedexImage;
+    public TMP_Text PokedexText;
+
+    public TMP_Text Instructions;
 
     #region
     public void ShowMain()
@@ -45,20 +51,35 @@ public class UIManager : Singleton<UIManager>
         FridgeDragCanvas.gameObject.SetActive(true);
         FridgeDrag.gameObject.SetActive(true);
 
-        PickCanvas.gameObject.SetActive(false);
-        Pick.gameObject.SetActive(false);
+        PokedexCanvas.gameObject.SetActive(false);
     }
     #endregion
 
     public void Play()
     {
-        ShowPick();
+        ShowDex();
         GameManager.Instance.Play();
     }
 
-    public void ShowName(string a)
+    public void ShowName(string a, Sprite b)
     {
         PickName.text = a;
+        PickImage.sprite = b;
+    }
+
+    public void PokedexShowHover(Recipe recipe)
+    {
+        PokedexImage.sprite = recipe.Sprite;
+        PokedexText.text = recipe.name;
+    }
+
+    public void RecipePicked()
+    {
+        ShowFridge();
+        Instructions.text = "Liste des Ingrédients :\n- " 
+            + GameManager.Instance.pickedRecipe.Ingredients[0].name + "\n- "
+            + GameManager.Instance.pickedRecipe.Ingredients[1].name + "\n- "
+            + GameManager.Instance.pickedRecipe.Ingredients[2].name;
     }
 
     public void Quit()

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
-  m_Name: Testi1
+  m_Name: Farine
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
-  IngredientName: Testi1
+  Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
+  IngredientName: Farine

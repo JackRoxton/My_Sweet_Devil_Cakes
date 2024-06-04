@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class Fridge : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<Transform> spots = new List<Transform>();
+    public GameObject IngredientPrefab;
+    List<GameObject> IngredientsList = new List<GameObject>();
+
+    private void Start()
     {
-        
+        int i = 0;
+        foreach (Transform t in spots)
+        {
+            GameObject go = Instantiate(IngredientPrefab, t.position,Quaternion.identity);
+            go.GetComponent<DragnDrop>().ingredient = RecipeManager.Instance.ingredients[i];
+            IngredientsList.Add(go);
+            i++;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Reset()
     {
-        
+        foreach(GameObject go in IngredientsList)
+        {
+            Destroy(go);
+            IngredientsList.Remove(go);
+        }
+        int i = 0;
+        foreach (Transform t in spots)
+        {
+            GameObject go = Instantiate(IngredientPrefab, t);
+            go.GetComponent<DragnDrop>().ingredient = RecipeManager.Instance.ingredients[i];
+            IngredientsList.Add(go);
+            i++;
+        }
     }
 }

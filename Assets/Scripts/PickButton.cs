@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class PickButton : MonoBehaviour
+public class PickButton : MonoBehaviour, IPointerEnterHandler//, IPointerExitHandler
 {
     public Recipe recipe;
 
@@ -18,8 +19,13 @@ public class PickButton : MonoBehaviour
         this.gameObject.GetComponent<Image>().sprite = sprite;
     }
 
-    public void OnMouseOver() // faire vers. UI
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        UIManager.Instance.ShowName(name);
+        UIManager.Instance.ShowName(name, sprite);
     }
+
+    /*public void OnPointerExit(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }*/
 }

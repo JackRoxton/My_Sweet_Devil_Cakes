@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
-  m_Name: Testi2
+  m_Name: Sucre
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
-  IngredientName: Testi2
+  Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
+  IngredientName: Sucre
