@@ -15,6 +15,8 @@ public class UIManager : Singleton<UIManager>
     public GameObject PickCanvas;
     public GameObject Pick;
 
+    public GameObject Crafting;
+
     public GameObject EvaluationCanvas;
 
     public TMP_Text PickName;
@@ -64,12 +66,19 @@ public class UIManager : Singleton<UIManager>
         PokedexCanvas.gameObject.SetActive(false);
     }
 
+    public void ShowCraft()
+    {
+        Crafting.gameObject.SetActive(true);
+
+        PickCanvas.gameObject.SetActive(false);
+        Pick.gameObject.SetActive(false);
+    }
+
     public void ShowEvaluation()
     {
         EvaluationCanvas.gameObject.SetActive(true);
 
-        PickCanvas.gameObject.SetActive(false);
-        Pick.gameObject.SetActive(false);
+        Crafting.gameObject.SetActive(false);
     }
     #endregion
 
@@ -108,6 +117,12 @@ public class UIManager : Singleton<UIManager>
     public void IngredientsOk()
     {
         ShowPick();
+    }
+
+    public void CraftingGrid()
+    {
+        ShowCraft();
+        GameManager.Instance.Craft();
     }
 
     public void Evaluation(Recipe recipe, int quality)

@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     public Bowl bowl;
     List<Ingredient> bowlIngredients;
     public Fridge fridge;
+    
 
     public enum GameStates
     {
@@ -16,6 +17,7 @@ public class GameManager : Singleton<GameManager>
         Pokedex,
         PokedexPick,
         FridgePick,
+        Crafting,
         Evaluation
     }
     public GameStates CurrentState = GameStates.MainMenu;
@@ -35,12 +37,18 @@ public class GameManager : Singleton<GameManager>
 
     public void IngredientsCheck()
     {
-        if (bowl.ingredients.Count != 3) return;
+        if (bowl.ingredients.Count < 3) return;
         bowlIngredients = bowl.ingredients;
         fridge.Clear();
         CurrentState = GameStates.PokedexPick;
         UIManager.Instance.IngredientsOk();
         picker.Pick();
+    }
+
+    public void Craft()
+    {
+        CurrentState = GameStates.Crafting;
+        CraftingManager.Instance.InstantiateCraft(bowlIngredients);
     }
 
     public void GrannyPick(Recipe recipe)
