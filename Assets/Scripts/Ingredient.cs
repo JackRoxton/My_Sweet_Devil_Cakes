@@ -6,6 +6,7 @@ using UnityEngine;
 public class Ingredient : ScriptableObject 
 {
     public Sprite Sprite;
+    public Sprite badSprite;
     public string IngredientName;
 
 }

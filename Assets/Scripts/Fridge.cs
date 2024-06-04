@@ -8,29 +8,22 @@ public class Fridge : MonoBehaviour
     public GameObject IngredientPrefab;
     List<GameObject> IngredientsList = new List<GameObject>();
 
-    private void Start()
+    public void Clear()
     {
-        int i = 0;
-        foreach (Transform t in spots)
-        {
-            GameObject go = Instantiate(IngredientPrefab, t.position,Quaternion.identity);
-            go.GetComponent<DragnDrop>().ingredient = RecipeManager.Instance.ingredients[i];
-            IngredientsList.Add(go);
-            i++;
-        }
-    }
-
-    public void Reset()
-    {
-        foreach(GameObject go in IngredientsList)
+        foreach (GameObject go in IngredientsList)
         {
             Destroy(go);
-            IngredientsList.Remove(go);
         }
+        IngredientsList.Clear();
+    }
+
+    public void Spawn()
+    {
+        Clear();
         int i = 0;
         foreach (Transform t in spots)
         {
-            GameObject go = Instantiate(IngredientPrefab, t);
+            GameObject go = Instantiate(IngredientPrefab, t.position, Quaternion.identity);
             go.GetComponent<DragnDrop>().ingredient = RecipeManager.Instance.ingredients[i];
             IngredientsList.Add(go);
             i++;

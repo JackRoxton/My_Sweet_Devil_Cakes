@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
   m_Name: Oeufs
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
+  Sprite: {fileID: 21300000, guid: e38917e5271d6994eab86769559822a4, type: 3}
+  badSprite: {fileID: 21300000, guid: 340d083896884bf40a5b9a92e88dc8d8, type: 3}
   IngredientName: Oeufs

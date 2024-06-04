@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CodexManager : MonoBehaviour
+public class CodexManager : Singleton<CodexManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    List<Recipe> recipes = new List<Recipe>();
+    public List<CodexButton> buttons = new List<CodexButton>();
+    private void Start()
     {
-        
+        recipes = RecipeManager.Instance.recipes;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CheckList(Recipe recipe, int quality, Sprite stars)
     {
-        
+        foreach(CodexButton b in buttons)
+        {
+            if(recipe == b.recipe)
+            {
+                b.quality = quality;
+                b.stars.sprite = stars;
+                return;
+            }
+        }
+        return;
     }
 }

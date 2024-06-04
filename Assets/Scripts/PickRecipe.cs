@@ -8,7 +8,7 @@ public class PickRecipe : MonoBehaviour
 
     public void Pick()
     {
-        List<Recipe> list = RecipeManager.Instance.GetUndoneRecipes();
+        List<Recipe> list = RecipeManager.Instance.GetRecipes();
         first.Gimme(list[0]);
         if (list.Count > 1)
             second.Gimme(list[1]);

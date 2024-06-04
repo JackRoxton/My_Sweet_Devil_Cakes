@@ -8,6 +8,8 @@ public class CodexButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 {
     public Recipe recipe;
     public Image image;
+    public int quality = 0;
+    public Image stars;
 
     public void OnPointerClick(PointerEventData eventData)
     {

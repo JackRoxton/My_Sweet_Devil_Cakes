@@ -15,6 +15,8 @@ public class UIManager : Singleton<UIManager>
     public GameObject PickCanvas;
     public GameObject Pick;
 
+    public GameObject EvaluationCanvas;
+
     public TMP_Text PickName;
     public Image PickImage;
 
@@ -23,12 +25,19 @@ public class UIManager : Singleton<UIManager>
 
     public TMP_Text Instructions;
 
+    public Image EvaluationImage;
+    public List<Sprite> EvaluationSprites;
+    public Image RecipeResult;
+    public TMP_Text EvaluationText;
+
     #region
     public void ShowMain()
     {
         MainMenuCanvas.gameObject.SetActive(true);
 
-        PokedexCanvas.gameObject.SetActive(false);
+        EvaluationCanvas.gameObject.SetActive(false);
+
+        GameManager.Instance.Replay();
     }
 
     public void ShowDex()
@@ -43,7 +52,8 @@ public class UIManager : Singleton<UIManager>
         PickCanvas.gameObject.SetActive(true);
         Pick.gameObject.SetActive(true);
 
-        MainMenuCanvas.gameObject.SetActive(false);
+        FridgeDragCanvas.gameObject.SetActive(false);
+        FridgeDrag.gameObject.SetActive(false);
     }
 
     public void ShowFridge()
@@ -52,6 +62,14 @@ public class UIManager : Singleton<UIManager>
         FridgeDrag.gameObject.SetActive(true);
 
         PokedexCanvas.gameObject.SetActive(false);
+    }
+
+    public void ShowEvaluation()
+    {
+        EvaluationCanvas.gameObject.SetActive(true);
+
+        PickCanvas.gameObject.SetActive(false);
+        Pick.gameObject.SetActive(false);
     }
     #endregion
 
@@ -80,6 +98,40 @@ public class UIManager : Singleton<UIManager>
             + GameManager.Instance.pickedRecipe.Ingredients[0].name + "\n- "
             + GameManager.Instance.pickedRecipe.Ingredients[1].name + "\n- "
             + GameManager.Instance.pickedRecipe.Ingredients[2].name;
+    }
+
+    public void IngredientsPicked()
+    {
+        GameManager.Instance.IngredientsCheck();
+    }
+
+    public void IngredientsOk()
+    {
+        ShowPick();
+    }
+
+    public void Evaluation(Recipe recipe, int quality)
+    {
+        ShowEvaluation();
+        if(!RecipeManager.Instance.MatchingRecipe(recipe))
+        {
+            EvaluationText.text = "Vous avez choisi une recette différente\n";
+            return;
+        }
+        EvaluationImage.sprite = EvaluationSprites[quality];
+        if (quality == 3)
+        {
+            RecipeResult.sprite = recipe.Sprite;
+            EvaluationText.text = "Parfait !";
+            RecipeManager.Instance.RecipeDone(recipe);
+        }
+        else
+        {
+            RecipeResult.sprite = recipe.badSprite;
+            EvaluationText.text = "Il y a eu une erreur quelque part...";
+        }
+        CodexManager.Instance.CheckList(recipe, quality, EvaluationSprites[quality]);
+
     }
 
     public void Quit()

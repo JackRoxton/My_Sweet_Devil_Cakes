@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PickButton : MonoBehaviour, IPointerEnterHandler//, IPointerExitHandler
+public class PickButton : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 {
     public Recipe recipe;
 
@@ -19,13 +19,14 @@ public class PickButton : MonoBehaviour, IPointerEnterHandler//, IPointerExitHan
         this.gameObject.GetComponent<Image>().sprite = sprite;
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        GameManager.Instance.GrannyPick(recipe);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         UIManager.Instance.ShowName(name, sprite);
     }
 
-    /*public void OnPointerExit(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }*/
 }

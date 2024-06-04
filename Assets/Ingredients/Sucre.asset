@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
   m_Name: Sucre
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 9ea72647c24be493ba6f15a9cd2a24ae, type: 3}
+  Sprite: {fileID: 21300000, guid: a36852438eb4e1847a1f15a71827b5fc, type: 3}
   IngredientName: Sucre
