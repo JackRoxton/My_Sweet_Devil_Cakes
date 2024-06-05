@@ -7,6 +7,7 @@ public class Ingredient : ScriptableObject
 {
     public Sprite Sprite;
     public Sprite badSprite;
+    public bool canbebad;
     public string IngredientName;
 
 }

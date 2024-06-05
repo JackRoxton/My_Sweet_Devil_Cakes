@@ -16,6 +16,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject Pick;
 
     public GameObject Crafting;
+    public GameObject CraftingCanvas;
 
     public GameObject EvaluationCanvas;
 
@@ -69,6 +70,7 @@ public class UIManager : Singleton<UIManager>
     public void ShowCraft()
     {
         Crafting.gameObject.SetActive(true);
+        CraftingCanvas.gameObject.SetActive(true);
 
         PickCanvas.gameObject.SetActive(false);
         Pick.gameObject.SetActive(false);
@@ -79,6 +81,7 @@ public class UIManager : Singleton<UIManager>
         EvaluationCanvas.gameObject.SetActive(true);
 
         Crafting.gameObject.SetActive(false);
+        CraftingCanvas.gameObject.SetActive(false);
     }
     #endregion
 
@@ -128,17 +131,17 @@ public class UIManager : Singleton<UIManager>
     public void Evaluation(Recipe recipe, int quality)
     {
         ShowEvaluation();
-        if(!RecipeManager.Instance.MatchingRecipe(recipe))
+        /*if(!RecipeManager.Instance.MatchingRecipe(recipe))
         {
             EvaluationText.text = "Vous avez choisi une recette différente\n";
             return;
-        }
+        }*/
         EvaluationImage.sprite = EvaluationSprites[quality];
         if (quality == 3)
         {
             RecipeResult.sprite = recipe.Sprite;
             EvaluationText.text = "Parfait !";
-            RecipeManager.Instance.RecipeDone(recipe);
+            //RecipeManager.Instance.RecipeDone(recipe);
         }
         else
         {

@@ -5,16 +5,38 @@ using UnityEngine;
 public class CraftingManager : Singleton<CraftingManager>
 {
     public List<Transform> craftSpots;
-    public GameObject prefab;
+    List<GameObject> craftObjects = new List<GameObject>();
+    //public GameObject prefab;
+    public CraftingResult result;
 
-    public void InstantiateCraft(List<Ingredient> list)
+    public void InstantiateCraft(List<DragnDrop> list)
     {
         int i = 0;
-        foreach (Ingredient x in list) 
+        foreach (DragnDrop x in list) 
         {
-            GameObject go = Instantiate(prefab, craftSpots[i].position, Quaternion.identity);
-            go.GetComponent<DragnDrop>().ingredient = x;
+            GameObject go = Instantiate(x.gameObject, craftSpots[i].position, Quaternion.identity);
+            //go.GetComponent<DragnDrop>().ingredient = x;
+            craftObjects.Add(go);
             i++;
+        }
+    }
+
+    void Clear()
+    {
+        foreach (GameObject go in craftObjects)
+        {
+            Destroy(go);
+        }
+        craftObjects.Clear();
+    }
+
+    public void CraftButton()
+    {
+        if(result.CraftCheck())
+        {
+            GameManager.Instance.SetFinalIngredients(result.StartCraft());
+            result.Clear();
+            Clear();
         }
     }
 }

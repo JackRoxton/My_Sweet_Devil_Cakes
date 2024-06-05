@@ -15,6 +15,7 @@ public class CraftingSlot : MonoBehaviour
         if (ingredient == null) return;
         if (ingredient.isDragged) return;
         if (!ingredient.Draggable) return;
+        if (Ingredient != null) return;
 
         ingredient.gameObject.transform.position = this.transform.position;
 
@@ -24,6 +25,6 @@ public class CraftingSlot : MonoBehaviour
 
     public void Clear()
     {
-        Ingredient = null;
+        Destroy(Ingredient.gameObject);
     }
 }

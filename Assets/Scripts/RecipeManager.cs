@@ -5,13 +5,21 @@ using UnityEngine;
 public class RecipeManager : Singleton<RecipeManager>
 {
     public List<Recipe> recipes;
-    List<Recipe> undoneRecipes;
-    public List<Ingredient> ingredients;
-    //ingrédients consommés
+    //List<Recipe> undoneRecipes;
+    public List<DragnDrop> ingredients = new List<DragnDrop>();
+    public GameObject dragndrop;
+    public List<Ingredient> ingredientsetup;
 
     private void Start()
     {
-        undoneRecipes = recipes;
+        int i = 0;
+        foreach(Ingredient ingredient in ingredientsetup)
+        {
+            GameObject g = Instantiate(dragndrop,new Vector2(20,20),Quaternion.identity);
+            g.GetComponent<DragnDrop>().ingredient = ingredientsetup[i];
+            ingredients[i] = g.GetComponent<DragnDrop>();
+            i++;
+        }
     }
 
     public Recipe CheckRecipe(Ingredient i1,Ingredient i2, Ingredient i3)
@@ -26,13 +34,16 @@ public class RecipeManager : Singleton<RecipeManager>
         return null;
     }
 
-    public int RecipeQuality(Ingredient i1, Ingredient i2, Ingredient i3, Recipe chosenRecipe)
+    public int RecipeQuality(DragnDrop i1, DragnDrop i2, DragnDrop i3, Recipe chosenRecipe)
     {
         int i = 0;
         List<Ingredient> list = new List<Ingredient>();
-        list.Add(i1);
-        list.Add(i2);
-        list.Add(i3);
+        if(!i1.bad)
+            list.Add(i1.ingredient);
+        if (!i2.bad)
+            list.Add(i2.ingredient);
+        if (!i3.bad)
+            list.Add(i3.ingredient);
         foreach (Ingredient ingredient in chosenRecipe.Ingredients)
         {
             if (list.Contains(ingredient))
@@ -48,10 +59,10 @@ public class RecipeManager : Singleton<RecipeManager>
         return recipe.Ingredients;
     }
 
-    public void RecipeDone(Recipe recipe)
+    /*public void RecipeDone(Recipe recipe)
     {
         undoneRecipes.Remove(recipe);
-    }
+    }*/
 
     /*public List<Recipe> GetUndoneRecipes()
     {
@@ -93,10 +104,10 @@ public class RecipeManager : Singleton<RecipeManager>
         List<Recipe> list = new List<Recipe>();
         do
         {
-            int x = Random.Range(0, undoneRecipes.Count);
-            if (!list.Contains(undoneRecipes[x]))
+            int x = Random.Range(0, recipes.Count);
+            if (!list.Contains(recipes[x]))
             {
-                list.Add(undoneRecipes[x]);
+                list.Add(recipes[x]);
                 i--;
             }
         } while (i != 0);

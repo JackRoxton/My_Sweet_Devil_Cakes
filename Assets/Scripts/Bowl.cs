@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bowl : MonoBehaviour
 {
-    public List<Ingredient> ingredients= new List<Ingredient>();
+    public List<DragnDrop> ingredients= new List<DragnDrop>();
     public List<Transform> spots = new List<Transform>();
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -21,7 +21,15 @@ public class Bowl : MonoBehaviour
         ingredient.gameObject.transform.position = spots[ingredients.Count].position;
 
         ingredient.Draggable = false;
-        ingredients.Add(ingredient.ingredient);
+        ingredients.Add(ingredient);
+    }
+
+    public void Empty()
+    {
+        foreach(DragnDrop ingredient in ingredients)
+        {
+            ingredient.Draggable = true;
+        }
     }
 
     public void Clear()
