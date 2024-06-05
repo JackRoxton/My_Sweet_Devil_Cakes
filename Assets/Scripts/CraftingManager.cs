@@ -6,8 +6,9 @@ public class CraftingManager : Singleton<CraftingManager>
 {
     public List<Transform> craftSpots;
     List<GameObject> craftObjects = new List<GameObject>();
-    //public GameObject prefab;
+    public GameObject anim;
     public CraftingResult result;
+
 
     public void InstantiateCraft(List<DragnDrop> list)
     {
@@ -32,11 +33,31 @@ public class CraftingManager : Singleton<CraftingManager>
 
     public void CraftButton()
     {
-        if(result.CraftCheck())
+        if (result.CraftCheck())
         {
-            GameManager.Instance.SetFinalIngredients(result.StartCraft());
-            result.Clear();
-            Clear();
+            StartCoroutine(_CraftButton());
         }
+    }
+
+    IEnumerator _CraftButton()
+    {
+        Anim();
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.SetFinalIngredients(result.StartCraft());
+        result.Clear();
+        Clear();
+    }
+
+    public void Anim()
+    {
+        int i = 0;
+        SpriteRenderer[] list = anim.GetComponentsInChildren<SpriteRenderer>();
+        List<DragnDrop> list2 = result.StartCraft();
+        foreach(DragnDrop go in list2)
+        {
+            list[i].sprite = go.ingredient.Sprite;
+            i++;
+        }
+        anim.GetComponent<Animator>().Play("Craft", 0);
     }
 }

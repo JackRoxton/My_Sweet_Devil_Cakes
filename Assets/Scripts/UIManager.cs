@@ -33,8 +33,7 @@ public class UIManager : Singleton<UIManager>
     public Image RecipeResult;
     public TMP_Text EvaluationText;
 
-    public Image Granny;
-    public List <Sprite> GrannySprites;
+    public Granny Granny;
 
     #region
     public void ShowMain()
@@ -144,14 +143,14 @@ public class UIManager : Singleton<UIManager>
         {
             RecipeResult.sprite = recipe.Sprite;
             EvaluationText.text = "Parfait !";
-            Granny.sprite = GrannySprites[0];
+            Granny.Happy();
             //RecipeManager.Instance.RecipeDone(recipe);
         }
         else
         {
             RecipeResult.sprite = recipe.badSprite;
             EvaluationText.text = "Il y a eu une erreur quelque part...";
-            Granny.sprite = GrannySprites[1];
+            Granny.Angry();
         }
         CodexManager.Instance.CheckList(recipe, quality, EvaluationSprites[quality]);
 
