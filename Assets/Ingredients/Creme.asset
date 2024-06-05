@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
   m_Name: Creme
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 72dfa3342c535fc49accdbbdc0d7b0ec, type: 3}
-  badSprite: {fileID: 21300000, guid: bd8b04b5f975a9943acb336077c0bd68, type: 3}
+  Sprite: {fileID: 21300000, guid: 5f93f63bdc631d9419c69fe400bbfe66, type: 3}
+  badSprite: {fileID: 21300000, guid: 333d26e79743ea848a3711e518c85e76, type: 3}
   canbebad: 1
-  bad: 0
   IngredientName: Creme

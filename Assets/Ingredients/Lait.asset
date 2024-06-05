@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
   m_Name: Lait
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: d123090bff5514b4fa6c15c634be2a12, type: 3}
+  Sprite: {fileID: 21300000, guid: 092ab555e06f1c3408a533300d63a652, type: 3}
+  badSprite: {fileID: 21300000, guid: d4c424dffd2072f48a4e400cef99f4c5, type: 3}
+  canbebad: 1
   IngredientName: Lait

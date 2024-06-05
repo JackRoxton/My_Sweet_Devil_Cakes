@@ -33,7 +33,7 @@ public class Fridge : MonoBehaviour
         {
             GameObject go = Instantiate(IngredientPrefab, spots[i].position, Quaternion.identity);
             go.GetComponent<DragnDrop>().ingredient = RecipeManager.Instance.ingredients[i].ingredient;
-            if(Random.Range(0,5) == 0 && go.GetComponent<DragnDrop>().ingredient.canbebad == true)
+            if(Random.Range(0,4) == 0 && go.GetComponent<DragnDrop>().ingredient.canbebad == true)
             {
                 go.GetComponent<DragnDrop>().GoBad();
             }
