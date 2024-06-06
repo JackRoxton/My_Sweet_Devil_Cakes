@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965e967d6f96e5e419ea06a250f3d254, type: 3}
   m_Name: Pankakes
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: b6a96c7c65795c94abf54a62adbf5c38, type: 3}
+  Sprite: {fileID: 21300000, guid: fdd11dc0b17d4e4478c12b46a31cced2, type: 3}
+  badSprite: {fileID: 21300000, guid: 7032a2277b99a974f9492024c8c72194, type: 3}
   Ingredients:
   - {fileID: 11400000, guid: 0222944404f12124fa4c2300b11cfcb7, type: 2}
   - {fileID: 11400000, guid: 561bac811684dbc4c990a560f33653e5, type: 2}
   - {fileID: 11400000, guid: 47a35e2e568d05840bed31a310ed0546, type: 2}
   RecipeName: Pankakes
+  GoodRecipe: "Des punkakes d\xE9licieux !"
+  BadRecipe: Je n'y toucherais pas...

@@ -19,6 +19,8 @@ public class CodexManager : Singleton<CodexManager>
         {
             if(recipe == b.recipe)
             {
+                if (quality <= b.quality) return;
+                b.image.GetComponent<Image>().color = Color.white;
                 b.quality = quality;
                 b.stars.sprite = stars;
                 return;

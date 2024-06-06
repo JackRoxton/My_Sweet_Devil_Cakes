@@ -42,9 +42,11 @@ public class CraftingManager : Singleton<CraftingManager>
     IEnumerator _CraftButton()
     {
         Anim();
-        yield return new WaitForSeconds(1);
-        GameManager.Instance.SetFinalIngredients(result.StartCraft());
+        List<DragnDrop> list = result.StartCraft();
         result.Clear();
+        yield return new WaitForSeconds(1);
+        GameManager.Instance.SetFinalIngredients(list);
+        AnimClear();
         Clear();
     }
 
@@ -60,4 +62,15 @@ public class CraftingManager : Singleton<CraftingManager>
         }
         anim.GetComponent<Animator>().Play("Craft", 0);
     }
+
+    public void AnimClear()
+    {
+        SpriteRenderer[] list = anim.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer go in list)
+        {
+            go.sprite = null;
+        }
+    }
+
+
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8079066286569369688}
   - component: {fileID: 8079066286569369689}
   - component: {fileID: 8079066286569369690}
+  - component: {fileID: 3071852093276669286}
   m_Layer: 0
   m_Name: Ingredient
   m_TagString: Untagged
@@ -117,8 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragged: 0
   Draggable: 1
-  ingredient: {fileID: 11400000, guid: 0222944404f12124fa4c2300b11cfcb7, type: 2}
+  ingredient: {fileID: 0}
   bad: 0
+  type: 2
 --- !u!50 &8079066286569369690
 Rigidbody2D:
   serializedVersion: 4
@@ -140,3 +142,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3071852093276669286
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079066286569369692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ab1251604e10f649aec3e58f2bce064, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

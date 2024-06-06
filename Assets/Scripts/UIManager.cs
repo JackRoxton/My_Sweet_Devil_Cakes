@@ -108,7 +108,7 @@ public class UIManager : Singleton<UIManager>
     public void RecipePicked()
     {
         ShowFridge();
-        Instructions.text = "Liste des Ingrédients :\n- " 
+        Instructions.text = "Liste des Ingredients :\n- " 
             + GameManager.Instance.pickedRecipe.Ingredients[0].name + "\n- "
             + GameManager.Instance.pickedRecipe.Ingredients[1].name + "\n- "
             + GameManager.Instance.pickedRecipe.Ingredients[2].name;
@@ -142,14 +142,14 @@ public class UIManager : Singleton<UIManager>
         if (quality == 3)
         {
             RecipeResult.sprite = recipe.Sprite;
-            EvaluationText.text = "Parfait !";
+            EvaluationText.text = recipe.GoodRecipe;
             Granny.Happy();
             //RecipeManager.Instance.RecipeDone(recipe);
         }
         else
         {
             RecipeResult.sprite = recipe.badSprite;
-            EvaluationText.text = "Il y a eu une erreur quelque part...";
+            EvaluationText.text = recipe.BadRecipe;
             Granny.Angry();
         }
         CodexManager.Instance.CheckList(recipe, quality, EvaluationSprites[quality]);

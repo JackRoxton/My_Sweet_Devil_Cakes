@@ -9,4 +9,7 @@ public class Recipe : ScriptableObject
     public Sprite badSprite;
     public List<Ingredient> Ingredients;
     public string RecipeName;
+
+    public string GoodRecipe;
+    public string BadRecipe;
 }

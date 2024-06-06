@@ -102,6 +102,7 @@ public class RecipeManager : Singleton<RecipeManager>
     {
         int i = 3;
         List<Recipe> list = new List<Recipe>();
+        list.Add(GameManager.Instance.pickedRecipe);
         do
         {
             int x = Random.Range(0, recipes.Count);
@@ -112,7 +113,6 @@ public class RecipeManager : Singleton<RecipeManager>
             }
         } while (i != 0);
 
-        list.Add(GameManager.Instance.pickedRecipe);
         return list;
     }
 

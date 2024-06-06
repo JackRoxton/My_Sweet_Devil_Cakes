@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
   m_Name: Miel
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 130c583f1d0030241889d269302b1cdc, type: 3}
+  Sprite: {fileID: 21300000, guid: 9d526fd03f61b6440a7687076fa7f868, type: 3}
+  badSprite: {fileID: 0}
+  canbebad: 0
   IngredientName: Miel

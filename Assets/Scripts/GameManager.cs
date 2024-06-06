@@ -71,6 +71,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Replay()
     {
+        //if 100%, 100% screen instead
         CurrentState = GameStates.MainMenu;
         fridge.Clear();
         bowl.Clear();
