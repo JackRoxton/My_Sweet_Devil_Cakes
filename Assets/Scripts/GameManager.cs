@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     public PickRecipe picker;
     public Recipe pickedRecipe;
+    public Recipe grannyRecipe;
     public Bowl bowl;
     List<DragnDrop> bowlIngredients;
     public Fridge fridge;
@@ -51,8 +52,9 @@ public class GameManager : Singleton<GameManager>
         picker.Pick();
     }
 
-    public void Craft()
+    public void Craft(Recipe recipe)
     {
+        grannyRecipe = recipe;
         CurrentState = GameStates.Crafting;
         SoundManager.Instance.Play("Clic");
         CraftingManager.Instance.InstantiateCraft(bowlIngredients);
@@ -80,6 +82,7 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Instance.StopMusic("2");
         SoundManager.Instance.PlayMusic("1");
         CurrentState = GameStates.MainMenu;
+        grannyRecipe = null;
         fridge.Clear();
         bowl.Clear();
     }

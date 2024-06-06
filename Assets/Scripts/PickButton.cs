@@ -21,7 +21,7 @@ public class PickButton : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        UIManager.Instance.CraftingGrid();
+        UIManager.Instance.CraftingGrid(recipe);
         //GameManager.Instance.GrannyPick(recipe);
     }
 

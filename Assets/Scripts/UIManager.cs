@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UIManager : Singleton<UIManager>
 {
     public GameObject MainMenuCanvas;
+    public GameObject Menu;
+
     public GameObject CreditsCanvas;
     public GameObject PokedexCanvas;
 
@@ -40,6 +42,7 @@ public class UIManager : Singleton<UIManager>
     public void ShowMain()
     {
         MainMenuCanvas.gameObject.SetActive(true);
+        Menu.gameObject.SetActive(true);
 
         EvaluationCanvas.gameObject.SetActive(false);
 
@@ -51,6 +54,7 @@ public class UIManager : Singleton<UIManager>
         PokedexCanvas.gameObject.SetActive(true);
 
         MainMenuCanvas.gameObject.SetActive(false);
+        Menu.gameObject .SetActive(false);
     }
 
     public void ShowPick() 
@@ -142,20 +146,21 @@ public class UIManager : Singleton<UIManager>
         ShowPick();
     }
 
-    public void CraftingGrid()
+    public void CraftingGrid(Recipe recipe)
     {
         ShowCraft();
-        GameManager.Instance.Craft();
+        GameManager.Instance.Craft(recipe);
     }
 
     public void Evaluation(Recipe recipe, int quality)
     {
         ShowEvaluation();
-        /*if(!RecipeManager.Instance.MatchingRecipe(recipe))
+        if(GameManager.Instance.pickedRecipe != GameManager.Instance.grannyRecipe)
         {
-            EvaluationText.text = "Vous avez choisi une recette différente\n";
+            EvaluationText.text = "Vous ne m'avez pas donne la bonne recette !\n";
+            Granny.Angry();
             return;
-        }*/
+        }
         EvaluationImage.sprite = EvaluationSprites[quality];
         if (quality == 3)
         {

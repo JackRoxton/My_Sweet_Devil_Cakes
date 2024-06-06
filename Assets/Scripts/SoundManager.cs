@@ -56,9 +56,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public void Start()
     {
-        ModifyAllVolume(masterVolume);
+        /*ModifyAllVolume(masterVolume);
         ModifyMusicVolume(musicVolume);
-        ModifySFXVolume(sfxVolume);
+        ModifySFXVolume(sfxVolume);*/
         PlayMusic("1");
     }
 

@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0222944404f12124fa4c2300b11cfcb7, type: 2}
   - {fileID: 11400000, guid: 773cb3b4ca7164e468236bed1d8d3583, type: 2}
   RecipeName: Tartelette Miel Fraise
-  GoodRecipe: "Une tartelette tr\xE8s r\xE9ussie !"
-  BadRecipe: "On ne reconna\xEEt plus le miel..."
+  GoodRecipe: Une tartelette tres reussie !
+  BadRecipe: On ne reconnait plus le miel...

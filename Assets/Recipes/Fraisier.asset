@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce42bbbbf86e07b4fb5fcd55f2fe7e45, type: 2}
   - {fileID: 11400000, guid: f383b879a3722054d86a9f29946bd6ae, type: 2}
   RecipeName: Charlotte aux fraises
-  GoodRecipe: "Une charlotte tr\xE8s r\xE9ussie !"
+  GoodRecipe: Une superbe charlotte !
   BadRecipe: Ces fraises n'ont pas la bonne couleur...

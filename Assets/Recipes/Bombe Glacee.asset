@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 561bac811684dbc4c990a560f33653e5, type: 2}
   RecipeName: Bombe Glacee
   GoodRecipe: Une explosion de saveurs !
-  BadRecipe: "Un r\xE9sultat explos\xE9..."
+  BadRecipe: Un resultat ... explosif
