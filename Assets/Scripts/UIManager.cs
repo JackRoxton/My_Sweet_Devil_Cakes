@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : Singleton<UIManager>
 {
     public GameObject MainMenuCanvas;
+    public GameObject CreditsCanvas;
     public GameObject PokedexCanvas;
 
     public GameObject FridgeDragCanvas;
@@ -93,6 +94,22 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.Play();
     }
 
+    public void Credits()
+    {
+        SoundManager.Instance.Play("Clic");
+        CreditsCanvas.gameObject.SetActive(true);
+
+        MainMenuCanvas.gameObject.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        SoundManager.Instance.Play("Clic");
+        MainMenuCanvas.gameObject.SetActive(true);
+
+        CreditsCanvas.gameObject.SetActive(false);
+    }
+
     public void ShowName(string a, Sprite b)
     {
         PickName.text = a;
@@ -117,6 +134,7 @@ public class UIManager : Singleton<UIManager>
     public void IngredientsPicked()
     {
         GameManager.Instance.IngredientsCheck();
+        SoundManager.Instance.Play("Clic");
     }
 
     public void IngredientsOk()
@@ -144,10 +162,11 @@ public class UIManager : Singleton<UIManager>
             RecipeResult.sprite = recipe.Sprite;
             EvaluationText.text = recipe.GoodRecipe;
             Granny.Happy();
-            //RecipeManager.Instance.RecipeDone(recipe);
+            SoundManager.Instance.Play("GameWon");
         }
         else
         {
+            SoundManager.Instance.Play("GameOver");
             RecipeResult.sprite = recipe.badSprite;
             EvaluationText.text = recipe.BadRecipe;
             Granny.Angry();

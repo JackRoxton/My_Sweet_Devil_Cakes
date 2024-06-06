@@ -11,8 +11,10 @@ public class DragnDrop : MonoBehaviour
     public bool isDragged = false;
     public bool Draggable = true;
     public Ingredient ingredient;
+    public GameObject ps;
     public bool bad;
     bool flag = false;
+    bool soundFlag = false;
 
     void Update()
     {
@@ -20,6 +22,7 @@ public class DragnDrop : MonoBehaviour
         if (!Input.GetMouseButton(0))
         {
             isDragged = false;
+            soundFlag = false;
         }
 
         if ((ingredient.name == "Fraise" || ingredient.name == "Sucre") && !flag)
@@ -32,6 +35,11 @@ public class DragnDrop : MonoBehaviour
     public void OnMouseDrag()
     {
         if(!Draggable) return;
+        if(!soundFlag)
+        {
+            SoundManager.Instance.Play("Panic");
+            soundFlag = true;
+        }
         isDragged = true;
         this.transform.position = new Vector3 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
         this.GetComponent<Animator>().Play("Wriggle",0);
@@ -40,12 +48,14 @@ public class DragnDrop : MonoBehaviour
     public void GoBad()
     {
         bad = true;
+        ps.SetActive(true);
         this.GetComponent<SpriteRenderer>().sprite = ingredient.badSprite;
     }
 
     public void Normal()
     {
         bad = false;
+        ps.SetActive(false);
         this.GetComponent<SpriteRenderer>().sprite = ingredient.Sprite;
     }
 
@@ -58,4 +68,6 @@ public class DragnDrop : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         flag = false;
     }
+
+
 }
