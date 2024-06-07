@@ -66,14 +66,20 @@ public class GameManager : Singleton<GameManager>
         bowlIngredients.Add(list[0]);
         bowlIngredients.Add(list[1]);
         bowlIngredients.Add(list[2]);
-        GrannyPick(pickedRecipe);
+        Minigame();
+        //GrannyPick(pickedRecipe);
     }
 
-    public void GrannyPick(Recipe recipe)
+    public void Minigame()
+    {
+        UIManager.Instance.Minigame();
+    }
+
+    public void GrannyPick(/*Recipe recipe*/)
     {
         // pickedRecipe = recipe;
-        int i = RecipeManager.Instance.RecipeQuality(bowlIngredients[0], bowlIngredients[1], bowlIngredients[2], recipe);
-        UIManager.Instance.Evaluation(recipe, i);
+        int i = RecipeManager.Instance.RecipeQuality(bowlIngredients[0], bowlIngredients[1], bowlIngredients[2], pickedRecipe);
+        UIManager.Instance.Evaluation(grannyRecipe, i);
     }
 
     public void Replay()
@@ -82,8 +88,11 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Instance.StopMusic("2");
         SoundManager.Instance.PlayMusic("1");
         CurrentState = GameStates.MainMenu;
+        if(CodexManager.Instance.FullCheck())
+            UIManager.Instance.Credits();
         grannyRecipe = null;
         fridge.Clear();
         bowl.Clear();
+        MinigameManager.Instance.Clear();
     }
 }

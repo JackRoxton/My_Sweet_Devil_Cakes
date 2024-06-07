@@ -9,6 +9,7 @@ public class Ingredient : ScriptableObject
     public Sprite badSprite;
     public bool canbebad;
     public string IngredientName;
+    public AudioClip grabSound;
 
 }
 

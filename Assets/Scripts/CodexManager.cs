@@ -28,4 +28,16 @@ public class CodexManager : Singleton<CodexManager>
         }
         return;
     }
+
+    public bool FullCheck()
+    {
+        foreach (CodexButton b in buttons)
+        {
+            if (b.quality != 3)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

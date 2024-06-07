@@ -57,7 +57,10 @@ public class CraftingManager : Singleton<CraftingManager>
         List<DragnDrop> list2 = result.StartCraft();
         foreach(DragnDrop go in list2)
         {
-            list[i].sprite = go.ingredient.Sprite;
+            if(!go.bad)
+                list[i].sprite = go.ingredient.Sprite;
+            else
+                list[i].sprite = go.ingredient.badSprite;
             i++;
         }
         anim.GetComponent<Animator>().Play("Craft", 0);

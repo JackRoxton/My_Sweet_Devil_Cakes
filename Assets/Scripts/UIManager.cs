@@ -21,6 +21,9 @@ public class UIManager : Singleton<UIManager>
     public GameObject Crafting;
     public GameObject CraftingCanvas;
 
+    public GameObject Minigamego;
+    public GameObject MinigameCanvas;
+
     public GameObject EvaluationCanvas;
 
     public TMP_Text PickName;
@@ -87,6 +90,8 @@ public class UIManager : Singleton<UIManager>
     {
         EvaluationCanvas.gameObject.SetActive(true);
 
+        Minigamego.gameObject.SetActive(false);
+        MinigameCanvas.gameObject.SetActive(false);
         Crafting.gameObject.SetActive(false);
         CraftingCanvas.gameObject.SetActive(false);
     }
@@ -137,6 +142,7 @@ public class UIManager : Singleton<UIManager>
 
     public void IngredientsPicked()
     {
+        SoundManager.Instance.Play("Granny");
         GameManager.Instance.IngredientsCheck();
         SoundManager.Instance.Play("Clic");
     }
@@ -152,12 +158,23 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.Craft(recipe);
     }
 
+    public void Minigame()
+    {
+        Minigamego.gameObject.SetActive(true);
+        MinigameCanvas.gameObject.SetActive(true);
+
+        Crafting.gameObject.SetActive(false);
+        CraftingCanvas.gameObject.SetActive(false);
+    }
+
     public void Evaluation(Recipe recipe, int quality)
     {
         ShowEvaluation();
         if(GameManager.Instance.pickedRecipe != GameManager.Instance.grannyRecipe)
         {
             EvaluationText.text = "Vous ne m'avez pas donne la bonne recette !\n";
+            RecipeResult.sprite = recipe.badSprite;
+            EvaluationImage.sprite = EvaluationSprites[0];
             Granny.Angry();
             return;
         }

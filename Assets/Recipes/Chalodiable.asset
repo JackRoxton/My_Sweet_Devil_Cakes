@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965e967d6f96e5e419ea06a250f3d254, type: 3}
-  m_Name: Creme Brulee
+  m_Name: Chalodiable
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 849665e3f00d41640bd3801c32a8e984, type: 3}
+  Sprite: {fileID: 21300000, guid: 86edc788a9062d44cbb452322c46604a, type: 3}
   badSprite: {fileID: 21300000, guid: 7032a2277b99a974f9492024c8c72194, type: 3}
   Ingredients:
-  - {fileID: 11400000, guid: 561bac811684dbc4c990a560f33653e5, type: 2}
-  - {fileID: 11400000, guid: fed85704164bb424a8e59acc1b090d27, type: 2}
+  - {fileID: 11400000, guid: 773cb3b4ca7164e468236bed1d8d3583, type: 2}
+  - {fileID: 11400000, guid: ce42bbbbf86e07b4fb5fcd55f2fe7e45, type: 2}
   - {fileID: 11400000, guid: f383b879a3722054d86a9f29946bd6ae, type: 2}
-  RecipeName: Creme Brulee
-  GoodRecipe: La creme de la creme !
-  BadRecipe: Elle a brulee...
+  RecipeName: Charlodiable
+  GoodRecipe: Une superbe charlotte !
+  BadRecipe: Ces fraises n'ont pas la bonne couleur...

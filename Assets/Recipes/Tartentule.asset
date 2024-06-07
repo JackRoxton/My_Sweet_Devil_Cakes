@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965e967d6f96e5e419ea06a250f3d254, type: 3}
-  m_Name: Donuts
+  m_Name: Tartentule
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 89f548254461b7d41a22764cb378aa7b, type: 3}
+  Sprite: {fileID: 21300000, guid: 29229791b0d8f994d832e9fdf349b7fa, type: 3}
   badSprite: {fileID: 21300000, guid: 7032a2277b99a974f9492024c8c72194, type: 3}
   Ingredients:
-  - {fileID: 11400000, guid: fe161f1a284f0d5429e242287a610922, type: 2}
-  - {fileID: 11400000, guid: f383b879a3722054d86a9f29946bd6ae, type: 2}
+  - {fileID: 11400000, guid: 47a35e2e568d05840bed31a310ed0546, type: 2}
+  - {fileID: 11400000, guid: 0222944404f12124fa4c2300b11cfcb7, type: 2}
   - {fileID: 11400000, guid: 773cb3b4ca7164e468236bed1d8d3583, type: 2}
-  RecipeName: Donuts
-  GoodRecipe: Ces donuts sont ravissants !
-  BadRecipe: Ces donuts ne volent pas haut...
+  RecipeName: Tartentule
+  GoodRecipe: Une tartelette tres reussie !
+  BadRecipe: On ne reconnait plus le miel...

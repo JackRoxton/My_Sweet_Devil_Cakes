@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac10958a59f85045ad5b354f19cea23, type: 3}
   m_Name: Beurre
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 8974667c0dd763446ab4baf90057a366, type: 3}
+  Sprite: {fileID: 21300000, guid: edf9b56b061913645abf4644e1f8dc75, type: 3}
   badSprite: {fileID: 21300000, guid: 3b2d076ddc1b97e4f830e098a747390f, type: 3}
   canbebad: 1
   IngredientName: Beurre
+  grabSound: {fileID: 0}
